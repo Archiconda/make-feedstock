@@ -15,7 +15,7 @@ env:
 build:
   pre_ci_boot:
     image_name: arm64v8/ubuntu
-    image_tag: 16.04
+    image_tag: 16.08
     pull: True
 
   ci:
