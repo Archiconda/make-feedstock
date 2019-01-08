@@ -16,7 +16,7 @@ build:
   pre_ci_boot:
     # It really doesn't like the centos image.....
     image_name: arm64v8/centos
-    tag_name: '7'
+    image_tag: '7'
 
     # image_name: arm64v8/ubuntu
     # image_tag: 18.04
