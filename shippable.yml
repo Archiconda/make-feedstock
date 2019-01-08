@@ -15,26 +15,26 @@ env:
 build:
   pre_ci_boot:
     # It really doesn't like the centos image.....
-    image_name: arm64v8/centos
-    image_tag: '7'
+    # image_name: arm64v8/centos
+    # image_tag: '7'
 
-    # image_name: arm64v8/ubuntu
-    # image_tag: 18.04
+    image_name: arm64v8/ubuntu
+    image_tag: 18.04
     pull: True
 
   ci:
-    - export LANG=en_US.UTF-8
-    - export LANGUAGE=en_US:en
-    - export LC_ALL=en_US.UTF-8
-    - yum install -y file libX11 ibXau libxcb libXdmcp libXext libXrender libXt mesa-libGL mesa-libGLU openssh-clients patch rsync util-linux wget which bzip2 xorg-x11-server-Xvfb curl
+    # - export LANG=en_US.UTF-8
+    # - export LANGUAGE=en_US:en
+    # - export LC_ALL=en_US.UTF-8
+    # - yum install -y file libX11 ibXau libxcb libXdmcp libXext libXrender libXt mesa-libGL mesa-libGLU openssh-clients patch rsync util-linux wget which bzip2 xorg-x11-server-Xvfb curl
     # Need to install bzip2 for conda
-    # - apt-get update
+    - apt-get update
     # bzip2 is necessary for conda installers to get executed
     # curl is necessary to download them
-    # - apt-get install -y bzip2 curl locales
+    - apt-get install -y bzip2 curl locales
 
     # - locale-gen en_US en_US.UTF-8
-    #- dpkg-reconfigure --frontend=noninteractive locales
+    -  dpkg-reconfigure --frontend=noninteractive locales
 
     # Remove binutils binaries becuase you can't install centos7 without them.
     # Ubuntu doesn't seem to have them but this command doesn't hurt
@@ -53,12 +53,10 @@ build:
     - conda --version
     - conda config --show
 
-    # - apt-get install perl
-    - yum install -y perl
+    # - yum install -y perl
     - conda build -m .ci_support/${CONFIG}.yaml .
     - export PACKAGE_NAME=`conda build -m .ci_support/${CONFIG}.yaml . --output`
-    # - apt-get install -y git
-    - yum install -y git
+    # - yum install -y git
     - git clone https://github.com/Archiconda/m4-feedstock.git
     - cd m4-feedstock
     - conda build -m .ci_support/${CONFIG}.yaml .
