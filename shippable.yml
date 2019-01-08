@@ -53,6 +53,7 @@ build:
     - conda --version
     - conda config --show
 
+    - apt-get install perl
     - conda build -m .ci_support/${CONFIG}.yaml .
     - export PACKAGE_NAME=`conda build -m .ci_support/${CONFIG}.yaml . --output`
     - apt-get install -y git
