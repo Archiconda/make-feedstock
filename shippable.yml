@@ -55,7 +55,12 @@ build:
 
     - conda build -m .ci_support/${CONFIG}.yaml .
     - export PACKAGE_NAME=`conda build -m .ci_support/${CONFIG}.yaml . --output`
-    - if [[ "$BINSTAR_TOKEN" != "" ]]; then anaconda -t $BINSTAR_TOKEN upload $PACKAGE_NAME ; else echo "BINSTAR_TOKEN not found, package is not being uploaded" ; fi
+    - apt-get install -y git
+    - git clone https://github.com/Archiconda/m4-feedstock.git
+    - cd m4-feedstock
+    - conda build -m .ci_support/${CONFIG}.yaml .
+
+    # - if [[ "$BINSTAR_TOKEN" != "" ]]; then anaconda -t $BINSTAR_TOKEN upload $PACKAGE_NAME ; else echo "BINSTAR_TOKEN not found, package is not being uploaded" ; fi
 
 # disable email notification
 # of CI job result
