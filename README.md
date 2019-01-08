@@ -20,6 +20,7 @@ Current build status
 [![OSX](https://img.shields.io/travis/conda-forge/make-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/make-feedstock)
 [![Windows](https://img.shields.io/appveyor/ci/conda-forge/make-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/make-feedstock/branch/master)
 [![linux-aarch64](https://img.shields.io/shippable//aarch64.svg?label=linux-aarch64)](https://app.shippable.com/github/Archiconda/make-feedstock)
+[![linux-aarch64](https://api.shippable.com/projects/5c263e724e246e0700cb0909/badge?branch=aarch64)](https://app.shippable.com/github/Archiconda/make-feedstock) 
 
 Current release info
 ====================
