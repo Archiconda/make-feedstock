@@ -61,7 +61,7 @@ build:
     - cd m4-feedstock
     - conda build -m .ci_support/${CONFIG}.yaml .
 
-    # - if [[ "$BINSTAR_TOKEN" != "" ]]; then anaconda -t $BINSTAR_TOKEN upload $PACKAGE_NAME ; else echo "BINSTAR_TOKEN not found, package is not being uploaded" ; fi
+    - if [[ "$BINSTAR_TOKEN" != "" ]]; then anaconda -t $BINSTAR_TOKEN upload $PACKAGE_NAME ; else echo "BINSTAR_TOKEN not found, package is not being uploaded" ; fi
 
 # disable email notification
 # of CI job result
