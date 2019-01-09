@@ -14,7 +14,8 @@ source:
     - perl_patch.patch
 
 build:
-  number: 2003
+  number: 2004
+  detect_binary_files_with_prefix: False
 
 requirements:
   build:
